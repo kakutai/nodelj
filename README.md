@@ -17,7 +17,7 @@ The toolkit is being used in the creation of 3D tools for the web. Some example 
 
 <screenshots>
 
-This work is based on the brilliant librarys and tools of:
+This work is based on the brilliant libraries and tools of:
 - Luajit:                       https://luajit.org/
 - Webview Lua ffi bindings:     https://github.com/webview/webview
 - Aspect:                       https://github.com/unifire-app/aspect
