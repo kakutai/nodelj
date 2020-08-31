@@ -1,6 +1,8 @@
 # nodelj
 
-Nodelj is intended to be a luajit version of Nodejs. The current implementation is a base framework only. 
+Nodelj is intended to be a luajit version of Nodejs. 
+The current implementation is a base framework with some simple examples.
+
 Current features:
 - Webkit ffi library (currently Linux build - Win and OSX to be added)
 - Interface to files for the Webkit engine.
@@ -13,7 +15,7 @@ Standalone Luajit implementation which means:
 - Use of standard Lua libraries
 - Easy to add your own interfaces with ffi
 
-The toolkit is being used in the creation of 3D tools for the web. Some example screenshots are shown below. 
+The framework is being used in the creation of 3D tools for the web. Some example screenshots are shown below. 
 
 <screenshots>
 
