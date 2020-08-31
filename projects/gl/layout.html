@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>saldo</title>
+
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+	<link rel="stylesheet" href="assets/js/themes/default-dark/style.css" />
+
+	<link type="text/css" rel="stylesheet" href="assets/css/goldenlayout-base.css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/goldenlayout-dark-theme.css" />
+</head>
+<body>
+
+<div id="wrapper">
+	<ul id="menuContainer"></ul>
+	<div id="layoutContainer"></div>
+</div>
+
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="assets/js/goldenlayout.min.js"></script>
+<script src="assets/js/jstree.min.js"></script>
+<script type="text/javascript" src="assets/js/highchart_min.js"></script>
+
+<script type="text/javascript">
+var config = {
+    content: [{
+        type: 'row',
+      content:[{
+        type: 'stack',
+        width: 60,
+        content:[{
+              type: 'component',
+              componentName: 'testComponent',
+              title:'<div class = "btn btn-primary">Test1</div>'
+          },{
+              type: 'component',
+              componentName: 'testComponent',
+              title:'<div class = "btn btn-primary">Test2</div>'
+          }]
+      },{
+            type: 'column',
+            content:[{
+                type: 'component',
+                componentName: 'fileView',
+				componentState: { label: "fileList" }
+            },{
+                type: 'component',
+                componentName: 'testComponent',
+				componentState: { label: "fileProperties" }
+            }]
+        }]
+    }]
+};
+
+var myLayout = new GoldenLayout( config );
+myLayout.registerComponent( 'fileView', function( container, state ){
+	container.getElement().jstree({
+		'core' : {
+		'themes': {
+			'name': 'default-dark',
+			'dots': true,
+			'icons': true
+		},				
+		'check_callback' : true,
+		'data' : [
+			{ "text" : "Root node", "children" : [
+				{ "text" : "Child node 1" },
+				{ "text" : "Child node 2" }
+			]
+			}
+		]
+		},
+		'plugins' : ['dnd']
+	});		
+});
+
+myLayout.registerComponent( 'testComponent', function( container, state ){
+	//container.setTitle("<h2>Test</h2>");
+});
+
+myLayout.init();
+
+</script>
+	
+</body>
+</html>
