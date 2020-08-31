@@ -23,4 +23,4 @@ This work is based on the brilliant libraries and tools of:
 - Aspect:                       https://github.com/unifire-app/aspect
 
 Similar projects:
-- Luakit: https://devhub.io/repos/lama7-luakit
+- Luakit: https://github.com/luakit-crowd/luakit
