@@ -77,6 +77,12 @@ local weblinks = {
         }
     },
 
+    bt = {
+        title = "Bassoon Tracker",
+        url_start = "custom:///dev.html",
+        global_path = "project/data/BassoonTracker",
+    },    
+
     google = {
         title = "Web Page",
         url_start = "https://www.google.com",
@@ -86,8 +92,8 @@ local weblinks = {
 
 -----------------------------------------------------------------------------------------------
 
-local www = weblinks.google
-www.www_dir = "custom://"
+local www = weblinks.bt
+if( www["www_dir"] == nil ) then www.www_dir = "custom://" end
 
 local fpool = require 'scripts/file_pool'
 fpool.init( www )

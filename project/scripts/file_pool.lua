@@ -38,6 +38,7 @@ local fpool_cef = ffi.C
 
 local max_htmlsize      = 2 * 1024 * 1024
 local mime_types = {}
+mime_types["adf"]       = "application/octet-stream"
 mime_types["bin"]       = "application/octet-stream"
 mime_types["css"]       = "text/css"
 mime_types["gif"]       = "image/gif"
@@ -96,7 +97,7 @@ local function pool_loadfile( filename_in, command, data_in )
             ffi.fill(finfo[0].fname, 1024 )
             ffi.copy(finfo[0].fname, ffi.string(filename, #filename), #filename)
 
-            local ext = string.match(filename, ".*%.(.*)")
+            local ext = string.match(filename, "^.+(%.[^%?]+)")
             ffi.fill(finfo[0].ext, #fpool_scheme + 3 )
             ffi.copy(finfo[0].ext, ffi.string(ext), #ext)
 

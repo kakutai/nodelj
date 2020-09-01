@@ -2,6 +2,8 @@
 
 Nodelj is intended to be a luajit version of Nodejs. 
 
+Note: The above is an aspiration, and not the current status of the project.
+
 The current implementation is a base framework with some simple examples.
 
 Current features:
