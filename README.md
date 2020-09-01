@@ -1,6 +1,7 @@
 # nodelj
 
 Nodelj is intended to be a luajit version of Nodejs. 
+
 The current implementation is a base framework with some simple examples.
 
 Current features:
@@ -15,9 +16,24 @@ Standalone Luajit implementation which means:
 - Use of standard Lua libraries
 - Easy to add your own interfaces with ffi
 
+## Usage
+
+Running a sample:
+1. Set the project you wish to execute in the project/main.lua file.
+2. Change to the root folder of the git project.
+3. Run the following:
+``` ./bin/linux/x64/luajit project/main.lua```
+
+Various forms of execution are available:
+- Local or combined Webkit pages using the "custom://" sceheme. Then scehem identifier can be modified as needed. 
+- Remote links or a web browser styled application. Use the google config to see this in action. 
+- Twig based templates combining the above. Make sure the twig template ends in the .twig extension. This can be modified if needed.
+
+## Misc
+
 The framework is being used in the creation of 3D tools for the web. Some example screenshots are shown below. 
 
-<screenshots>
+![Image](images/screenshots/scenarist-tool-dev-01.png)
 
 This work is based on the brilliant libraries and tools of:
 - Luajit:                       https://luajit.org/
