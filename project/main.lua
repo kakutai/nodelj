@@ -73,7 +73,7 @@ local weblinks = {
 
 -----------------------------------------------------------------------------------------------
 
-local www = weblinks.aspecttest
+local www = weblinks.google
 www.www_dir = "custom://"
 
 local fpool = require 'scripts/file_pool'
