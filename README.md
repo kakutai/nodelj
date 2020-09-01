@@ -5,11 +5,11 @@ Nodelj is intended to be a luajit version of Nodejs.
 The current implementation is a base framework with some simple examples.
 
 Current features:
-- Webkit ffi library (currently Linux build - Win and OSX to be added)
+- Webkit ffi library (currently Linux build - Win and OSX to be added).
 - Interface to files for the Webkit engine.
 - JavaScript interface for calling into Luajit.
 - Luajit eval for accessing variables in JavaScript.
-- Twig compatible templating (local and remote).
+- Twig compatible templating (local and remote) using the Aspect framework.
 
 Standalone Luajit implementation which means:
 - Access to a huge number of ffi libraries
