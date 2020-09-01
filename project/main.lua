@@ -48,16 +48,19 @@ local progname = ... or (arg and arg[0]) or "README"
 local weblinks = {
 
     editor_panel = {
+        title = "Editor",
         url_start = "custom://layout.html",
         global_path = "project/data/gl",
     },
 
     saldowww = {
+        title = "Web Page",
         url_start = "custom://index.html",
         global_path = "project/data/www",
     },
 
     aspecttest = {
+        title = "Aspect Test",
         url_start = "custom://index.html.twig",
         global_path = "project/data/aspect",
         site_args = {
@@ -66,6 +69,7 @@ local weblinks = {
     },
 
     google = {
+        title = "Web Page",
         url_start = "https://www.google.com",
         global_path = "project/data/kakutai",
     },
@@ -96,7 +100,7 @@ end
 -- Main stuff
 
 local wvobj = wv.webViewCreate()
-wv.webViewSetTitle( wvobj, "Scenarist Tool" )
+wv.webViewSetTitle( wvobj, www.title )
 wv.webViewSetSize( wvobj, 1280, 900 )
 
 wv.webViewHandleScheme( wvobj, "custom", fpool_readfile )
