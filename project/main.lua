@@ -68,6 +68,15 @@ local weblinks = {
         }
     },
 
+    webgltest = {
+        title = "WebGL Test",
+        url_start = "custom:///highway/highway.html",
+        global_path = "project/data/js-demo-fun",
+        site_args = {
+            name = "Test Name"
+        }
+    },
+
     google = {
         title = "Web Page",
         url_start = "https://www.google.com",
