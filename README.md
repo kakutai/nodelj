@@ -18,9 +18,10 @@ Standalone Luajit implementation which means:
 
 ## Usage
 
+### Linux
 Running a sample:
 1. Set the project you wish to execute in the project/main.lua file.
-2. Change to the root folder of the git project.
+2. Open terminal and cd to the root folder of the git project.
 3. Run the following:
 ``` ./bin/linux/x64/luajit project/main.lua```
 
@@ -46,3 +47,9 @@ This work is based on the brilliant libraries and tools of:
 
 Similar projects:
 - Luakit: https://github.com/luakit-crowd/luakit
+
+
+## License
+
+The license is MIT. Please feel free to use personally or commercially.
+Refer to the license file for details.
