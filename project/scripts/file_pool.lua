@@ -49,7 +49,9 @@ mime_types["jpeg"]      = "image/jpeg"
 mime_types["jpg"]       = "image/jpeg"
 mime_types["js"]        = "text/javascript"
 mime_types["json"]      = "application/json"
+mime_types["mjs"]       = "text/javascript"
 mime_types["mpeg"]      = "video/mpeg"
+mime_types["obj"]       = "text/plain"
 mime_types["png"]       = "image/png"
 mime_types["svg"]       = "image/svg+xml"
 mime_types["tif"]       = "image/tiff"
@@ -99,6 +101,7 @@ local function pool_loadfile( filename_in, command, data_in )
             ffi.copy(finfo[0].fname, ffi.string(filename, #filename), #filename)
 
             local ext = string.match(filename, "^.+%.(.+)")
+            -- print(ext, filename)
             ffi.fill(finfo[0].ext, #fpool_scheme + 3 )
             ffi.copy(finfo[0].ext, ffi.string(ext), #ext)
 
