@@ -40,6 +40,9 @@ Scenarist Tool - Saldo Pty Ltd
 Sample use as a browser
 ![Image](images/screenshots/scenarist-tool-dev-02.png)
 
+Full Window WebGL Shader test
+![Image](images/screenshots/scenarist-tool-dev-03.png)
+
 This work is based on the brilliant libraries and tools of:
 - Luajit:                       https://luajit.org/
 - Webview Lua ffi bindings:     https://github.com/webview/webview
