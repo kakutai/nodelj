@@ -93,11 +93,12 @@ local function pool_loadfile( filename_in, command, data_in )
             local pathname  = ffi.string(path_in)
 
             filename = string.sub( filename, #fpool_scheme + 4, -1 )
+            filename        = string.match(filename, "([^%?]+)")
 
             ffi.fill(finfo[0].fname, 1024 )
             ffi.copy(finfo[0].fname, ffi.string(filename, #filename), #filename)
 
-            local ext = string.match(filename, "^.+(%.[^%?]+)")
+            local ext = string.match(filename, "^.+%.(.+)")
             ffi.fill(finfo[0].ext, #fpool_scheme + 3 )
             ffi.copy(finfo[0].ext, ffi.string(ext), #ext)
 
