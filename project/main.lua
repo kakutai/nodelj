@@ -27,8 +27,8 @@ local b64 = require 'base64'
 local utf8 = require 'utf8string'
 
 -----------------------------------------------------------------------------------------------
-
-local x11 = require 'x11'
+-- X11 has some sleep functions if needed.
+-- local x11 = require 'x11'
 local wv = require 'webview'
 local assimp = require 'assimp'
 
