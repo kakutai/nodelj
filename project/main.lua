@@ -79,7 +79,7 @@ local weblinks = {
 
     materialism = {
         title = "Materialism",
-        url_start = "custom:///index.html",
+        url_start = "custom:///index.html#demo3",
         global_path = "project/data/materialism",
         www_dir = "https://",
         site_args = {

@@ -80,6 +80,8 @@ float pnoise(vec2 P, vec2 rep, int seed) {
 	return (2.3 * n_xy) * 0.5 + 0.5;
 }
 
+vec4 Color;
+
 void main() {
 	// gl_FragColor = vec4(v_uvCoordinates.xy, 0, 1);
 	int x = int(floor(v_uvCoordinates.x * u_resolution.x + 0.5));
@@ -91,5 +93,6 @@ void main() {
 	// else gl_FragColor = vec4(0, 0, 0, 1);
 	
 	float noiseAtFragment = pnoise(v_uvCoordinates * u_scale, vec2(u_scale, u_scale), u_seed);
-	gl_FragColor = vec4(noiseAtFragment, noiseAtFragment, noiseAtFragment, 1);
+	Color = vec4(noiseAtFragment, noiseAtFragment, noiseAtFragment, 1);
+    gl_FragColor = Color;
 }
