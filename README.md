@@ -4,6 +4,7 @@ Nodelj is intended to be a luajit version of Nodejs.
 
 Notes: 
 >The above is an aspiration, and not the current status of the project.
+
 >A server installation of Linux may have no gtk installed. For nodelj to work on linux, please install gtk. Desktops appear to be fine.
 
 The current implementation is a base framework with some simple examples.
