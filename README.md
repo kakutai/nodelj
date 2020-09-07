@@ -31,7 +31,7 @@ Running a sample:
 ``` ./bin/linux/x64/luajit project/main.lua```
 
 Various forms of execution are available:
-- Local or combined Webkit pages using the "custom://" sceheme. Then scehem identifier can be modified as needed. 
+- Local or combined Webkit pages using the "custom://" scheme. Then scheme identifier can be modified as needed. 
 - Remote links or a web browser styled application. Use the google config to see this in action. 
 - Twig based templates combining the above. Make sure the twig template ends in the .twig extension. This can be modified if needed.
 
