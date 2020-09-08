@@ -45,62 +45,17 @@ local hlpr = require 'helpers'
 
 local progname = ... or (arg and arg[0]) or "README"
 
-local weblinks = {
-
-    editor_panel = {
-        title = "Editor",
-        url_start = "custom://layout.html",
-        global_path = "project/data/gl",
-    },
-
-    saldowww = {
-        title = "Web Page",
-        url_start = "custom://index.html",
-        global_path = "project/data/www",
-    },
-
-    aspecttest = {
-        title = "Aspect Test",
-        url_start = "custom://index.html.twig",
-        global_path = "project/data/aspect",
-        site_args = {
-            name = "Test Name"
-        }
-    },
-
-    webgltest = {
-        title = "WebGL Test",
-        url_start = "custom:///highway/highway.html",
-        global_path = "project/data/js-demo-fun",
-        site_args = {
-            name = "Test Name"
-        }
-    },
-
-    materialism = {
-        title = "Materialism",
-        url_start = "custom:///index.html#demo3",
-        global_path = "project/data/materialism",
-        www_dir = "https://",
-        site_args = {
-            name = "Test Name"
-        }
-    },
-
-    google = {
-        title = "Web Page",
-        url_start = "https://www.google.com",
-        global_path = "project/data/kakutai",
-    },
-}
+local configs = require('project.configs.main')
 
 -----------------------------------------------------------------------------------------------
 
-local www = weblinks.materialism
+local www = configs.google
 if( www["www_dir"] == nil ) then www.www_dir = "custom://" end
 
 local fpool = require 'scripts/file_pool'
 fpool.init( www )
+
+local wvobj = wv.webViewCreate()
 
 -----------------------------------------------------------------------------------------------
 -- Register scheme callback - change scheme above for your own scheme.
@@ -111,19 +66,21 @@ local function fpool_readfile( filename, dataptr, sizeptr, mime_type )
 end
 
 -----------------------------------------------------------------------------------------------
-local function lj_sample_code( seq, req, arg )
-    print( "Luajit Called from JS: ", ffi.string(seq), ffi.string(req), arg)
-end
-
------------------------------------------------------------------------------------------------
 -- Main stuff
 
-local wvobj = wv.webViewCreate()
 wv.webViewSetTitle( wvobj, www.title )
 wv.webViewSetSize( wvobj, 1280, 900 )
 
 wv.webViewHandleScheme( wvobj, "custom", fpool_readfile )
-wv.webViewBindOperation( wvobj, "do_lj_script", lj_sample_code, nil )
+
+if( www.register ~= nil ) then 
+    if(www.register.init) then www.register.init( wv, wvobj ) end
+    for k, v in pairs( www.register ) do
+        if( k ~= "init" ) then
+            wv.webViewBindOperation( wvobj, v.funcname, v.func, v.args )
+        end
+    end
+end
 
 wv.webViewNavigate( wvobj, www.url_start )
 

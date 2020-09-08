@@ -552,10 +552,12 @@ public:
     webkit_web_inspector_show (WEBKIT_WEB_INSPECTOR(inspector));
   }
 
+public:
+  GtkWidget *m_webview;
+
 private:
   virtual void on_message(const std::string msg) = 0;
   GtkWidget *m_window;
-  GtkWidget *m_webview;
 };
 
 using browser_engine = gtk_webkit_engine;

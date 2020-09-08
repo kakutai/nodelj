@@ -27,7 +27,8 @@ ffi.cdef[[
 
     /* Function callback for file streaming. This is called when a file open is initiated. */
     typedef void (* fpool_callback)( const char *filename, const char * op, struct lj_data_in *datain );
-    
+    typedef void (* js_callback)( const char *results );
+
     void *webViewCreate();
     void webViewSetTitle( void *w, const char *title);
     void webViewSetSize( void *w, int width, int height );
@@ -38,6 +39,7 @@ ffi.cdef[[
     void webViewDestroy(void *w );
 
     void webViewEnableInspector( void *w );
+    void webViewRunJS( void *w, const char *script, js_callback lj_callback );
 ]]
 
 return wv
