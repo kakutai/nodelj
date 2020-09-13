@@ -1,6 +1,7 @@
 # nodelj
 
 Nodelj is intended to be a luajit version of Nodejs. 
+Development supported by Saldo Pty Ltd: https://www.saldo.com.au
 
 Notes: 
 >The above is an aspiration, and not the current status of the project.
