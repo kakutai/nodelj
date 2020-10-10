@@ -2,9 +2,9 @@
 local ffi = require( "ffi" )
 
 local libs = ffi_wv_lib or {
-   Windows = { x86 = "bin/windows/x86/webview.dll", x64 = "bin/windows/x64/webview.dll" },
-   OSX     = { x86 = "bin/osx/webview.dylib", x64 = "bin/osx/webview.dylib" },
-   Linux   = { x86 = "bin/linux/x64/webview.so", x64 = "bin/linux/x64/webview.so", arm = "webview" },
+   Windows = { x64 = "bin/windows/webview.dll" },
+   OSX     = { x64 = "bin/osx/webview.dylib" },
+   Linux   = { x64 = "bin/linux/webview.so", arm = "webview" },
 }
 
 local wv = ffi.load( ffi_wv_lib or libs[ ffi.os ][ ffi.arch ] or "webview" )

@@ -30,7 +30,7 @@ Running a sample:
 1. Set the project you wish to execute in the project/main.lua file.
 2. Open terminal and cd to the root folder of the git project.
 3. Run the following:
-``` ./bin/linux/x64/luajit project/main.lua```
+``` ./bin/linux/luajit project/main.lua```
 
 Various forms of execution are available:
 - Local or combined Webkit pages using the "custom://" scheme. Then scheme identifier can be modified as needed. 

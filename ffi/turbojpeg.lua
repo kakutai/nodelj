@@ -2,9 +2,9 @@
 local ffi = require("ffi")
 
 local libs = ffi_luajit_libs or {
-   OSX     = { x86 = "bin/OSX/libturbojpeg.0.2.0.dylib", x64 = "bin/OSX/libturbojpeg.0.2.0.dylib" },
-   Windows = { x86 = "bin/windows/x86/turbojpeg.dll", x64 = "bin/windows/x64/turbojpeg.dll" },
-   Linux   = { x86 = "SDL", x64 = "bin/Linux/x64/libturbojpeg.so.0.2.0", arm = "bin/Linux/arm/libturbojpeg.so.0.2.0" },
+   OSX     = { x64 = "bin/OSX/libturbojpeg.0.2.0.dylib" },
+   Windows = { x64 = "bin/windows/turbojpeg.dll" },
+   Linux   = { x64 = "bin/Linux/libturbojpeg.so.0.2.0", arm = "bin/Linux/libturbojpeg.so.0.2.0" },
 }
 
 local turbojpeg  = ffi.load( libs[ ffi.os ][ ffi.arch ]  or "turbojpeg" )

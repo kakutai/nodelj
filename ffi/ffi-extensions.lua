@@ -3,7 +3,7 @@ local extensions = {}
 print(ffi.os)
 ---------------------------------------------------------------------------------------
 local jpeglib = {
-   ["Linux"] = "./bin/linux/x64/libjpeg.so",
+   ["Linux"] = "./bin/linux/libjpeg.so",
    ["Windows"] = "jpeg.dll",
 }
 

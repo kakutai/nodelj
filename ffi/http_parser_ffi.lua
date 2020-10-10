@@ -1,12 +1,12 @@
 local ffi  = require( "ffi" )
 
 local libs = ffi_httpparser_lib or {
-   OSX     = { x86 = "http-parser", x64 = "http-parser" },
-   Windows = { x86 = "http-parser.dll",           x64 = "http-parser.dll"           },
-   Linux   = { x86 = "http-parser.so",            x64 = "http-parser.so"            , arm = "bin/Linux/arm/http-parser.so"},
-   BSD     = { x86 = "http-parser.so",            x64 = "http-parser.so"            },
-   POSIX   = { x86 = "http-parser.so",            x64 = "http-parser.so"            },
-   Other   = { x86 = "http-parser.so",            x64 = "http-parser.so"            },
+   OSX     = { x64 = "http-parser" },
+   Windows = { x64 = "http-parser.dll"           },
+   Linux   = { x64 = "http-parser.so"            , arm = "bin/Linux/http-parser.so"},
+   BSD     = { x64 = "http-parser.so"            },
+   POSIX   = { x64 = "http-parser.so"            },
+   Other   = { x64 = "http-parser.so"            },
 }
 
 local lib  			= ffi_httpparser_lib or libs[ ffi.os ][ ffi.arch ]

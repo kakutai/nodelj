@@ -1,12 +1,12 @@
 local ffi = require("ffi")
 
 local libs = ffi_luajit_libs or {
-   OSX     = { x86 = "bin/osx/sdl.dylib", x64 = "bin/OSX/sdl.dylib" },
-   Windows = { x86 = "bin/windows/x86/sdl.dll", x64 = "bin/windows/x64/sdl.dll" },
-   Linux   = { x86 = "SDL", x64 = "bin/linux/x64/libSDL.so", arm = "bin/linux/arm/libSDL.so" },
-   BSD     = { x86 = "bin/luajit32.so",  x64 = "bin/luajit64.so" },
-   POSIX   = { x86 = "bin/luajit32.so",  x64 = "bin/luajit64.so" },
-   Other   = { x86 = "bin/luajit32.so",  x64 = "bin/luajit64.so" },
+   OSX     = { x64 = "bin/OSX/sdl.dylib" },
+   Windows = { x64 = "bin/windows/sdl.dll" },
+   Linux   = { x64 = "bin/linux/libSDL.so", arm = "bin/linux/libSDL.so" },
+   BSD     = { x64 = "bin/luajit64.so" },
+   POSIX   = { x64 = "bin/luajit64.so" },
+   Other   = { x64 = "bin/luajit64.so" },
 }
 
 local sdl  = ffi.load( ffi_SDL_lib or ffi_sdl_lib or libs[ ffi.os ][ ffi.arch ]  or "sdl" )

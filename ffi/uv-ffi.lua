@@ -15,7 +15,7 @@ if ffi.os == 'Windows' then
   ]]
 end
 if ffi.os == "Linux" then 
-  UV = ffi.load('./bin/linux/x64/libuv.so')
+  UV = ffi.load('./bin/linux/libuv.so')
   ffi.cdef [[
     typedef struct uv_buf_t {
       char* base;

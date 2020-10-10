@@ -2,9 +2,9 @@
 local ffi = require("ffi")
 
 local libs = ffi_luajit_libs or {
-   OSX     = { x86 = "bin/OSX/x264.0.2.0.dylib", x64 = "bin/OSX/x264.0.2.0.dylib" },
-   Windows = { x86 = "bin/windows/x86/x264.dll", x64 = "bin/windows/x64/x264.dll" },
-   Linux   = { x86 = "SDL", x64 = "bin/Linux/x64/x264.so.0.2.0", arm = "bin/Linux/arm/x264.so.0.2.0" },
+   OSX     = { x64 = "bin/OSX/x264.0.2.0.dylib" },
+   Windows = { x64 = "bin/windows/x264.dll" },
+   Linux   = { x64 = "bin/Linux/x264.so.0.2.0", arm = "bin/Linux/x264.so.0.2.0" },
 }
 
 local x264  = ffi.load( libs[ ffi.os ][ ffi.arch ]  or "x264" )
