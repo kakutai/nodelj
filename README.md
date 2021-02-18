@@ -2,7 +2,7 @@
 
 Nodelj is intended to be a luajit version of Nodejs. 
 
-Development supported by Saldo Pty Ltd: https://www.saldo.com.au
+Development supported by Kakutai Pty Ltd: https://www.kakutai.com
 
 Notes: 
 >The above is an aspiration, and not the current status of the project.
@@ -41,7 +41,7 @@ Various forms of execution are available:
 
 The framework is being used in the creation of 3D tools for the web. Some example screenshots are shown below. 
 
-Scenarist Tool - Saldo Pty Ltd
+Scenarist Tool - Kakutai Pty Ltd
 ![Image](images/screenshots/scenarist-tool-dev-01.png)
 
 Sample use as a browser
