@@ -16,6 +16,13 @@ local p = require('pprint').prettyPrint
 local stp = require('scripts.stacktraceplus')
 debug.traceback = stp.stacktrace
 
+if(ffi.os == "Windows") then 
+
+    ffi.cdef([[
+        void Sleep(uint32_t ms);
+    ]])
+end
+
 -----------------------------------------------------------------------------------------------
 -- Must be declared before uv-ffi if using http-parser
 -- local httpp = require "http_parser_ffi"
@@ -49,13 +56,11 @@ local configs = require('project.configs.main')
 
 -----------------------------------------------------------------------------------------------
 
-local www = configs.google
-if( www["www_dir"] == nil ) then www.www_dir = "custom://" end
+local www = configs.editor_panel
+if( www["www_dir"] == nil ) then www.www_dir = "https://custom/" end
 
-local fpool = require 'scripts/file_pool'
-fpool.init( www )
-
-local wvobj = wv.webViewCreate()
+-- local fpool = require 'scripts/file_pool'
+-- fpool.init( www )
 
 -----------------------------------------------------------------------------------------------
 -- Register scheme callback - change scheme above for your own scheme.
@@ -67,25 +72,47 @@ end
 
 -----------------------------------------------------------------------------------------------
 -- Main stuff
+print("Creating WebView...")
+local wvobj = wv.webview_create(1, nil)
 
-wv.webViewSetTitle( wvobj, www.title )
-wv.webViewSetSize( wvobj, 1280, 900 )
+print("Creating Setting title and size...")
+wv.webview_set_title( wvobj, www.title )
+wv.webview_set_size( wvobj, 10, 10, 1280, 900, 3 )
 
-wv.webViewHandleScheme( wvobj, "custom", fpool_readfile )
+--wv.webview_dispatch( wvobj, "custom", fpool_readfile )
 
+print("Creating Registrations...")
 if( www.register ~= nil ) then 
     if(www.register.init) then www.register.init( wv, wvobj ) end
     for k, v in pairs( www.register ) do
         if( k ~= "init" ) then
-            wv.webViewBindOperation( wvobj, v.funcname, v.func, v.args )
+            wv.webview_bind( wvobj, v.funcname, v.func, v.args )
         end
     end
 end
 
-wv.webViewNavigate( wvobj, www.url_start )
 
 -- NOTE: Enable this to view debug at start. This can be put in JS callbacks too. 
--- wv.webViewEnableInspector( wvobj )
-wv.webViewRun( wvobj )
+print("Creating Hostname mapping...")
+local fh = execute("cd")
+local apppath = fh:read("*l").."/"..www.global_path
+fh:close()
+print("App path: "..apppath)
+wv.set_virtual_hostname( wvobj, "custom", apppath )
+
+wv.webview_navigate( wvobj, www.url_start )
+--local wvhwnd = wv.webview_get_window( wvobj )
+
+-- wv.webview_run( wvobj )
+print("Starting WebView...")
+local running = true 
+while(running) do
+    
+    local res = wv.webview_poll( wvobj )
+    if(res == -1) then print("Exiting..") running = false end
+    ffi.C.Sleep(1)
+end
+
+wv.webview_destroy( wvobj )
 
 -----------------------------------------------------------------------------------------------

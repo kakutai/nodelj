@@ -4,19 +4,19 @@ local weblinks = {
 
     editor_panel = {
         title = "Editor",
-        url_start = "custom://layout.html",
+        url_start = "https://custom/layout.html",
         global_path = "project/data/gl",
     },
 
     saldowww = {
         title = "Web Page",
-        url_start = "custom://index.html",
+        url_start = "https://custom/index.html",
         global_path = "project/data/www",
     },
 
     aspecttest = {
         title = "Aspect Test",
-        url_start = "custom://index.html.twig",
+        url_start = "https://custom/index.html.twig",
         global_path = "project/data/aspect",
         site_args = {
             name = "Test Name"
@@ -25,7 +25,7 @@ local weblinks = {
 
     webgltest = {
         title = "WebGL Test",
-        url_start = "custom:///highway/highway.html",
+        url_start = "https://custom/highway/highway.html",
         global_path = "project/data/js-demo-fun",
         site_args = {
             name = "Test Name"
@@ -38,7 +38,7 @@ local weblinks = {
 
     materialism = {
         title = "Materialism",
-        url_start = "custom:///index.html#demo3",
+        url_start = "https://custom/index.html",
         global_path = "project/data/materialism",
         www_dir = "https://",
         site_args = {
