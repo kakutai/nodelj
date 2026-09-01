@@ -4,7 +4,7 @@ print(ffi.os)
 ---------------------------------------------------------------------------------------
 local jpeglib = {
    ["Linux"] = "./bin/linux/libjpeg.so",
-   ["Windows"] = "jpeg.dll",
+   ["Windows"] = "libjpeg.dll",
 }
 
 

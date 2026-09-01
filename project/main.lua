@@ -55,7 +55,7 @@ if( www["www_dir"] == nil ) then www.www_dir = "custom://" end
 local fpool = require 'scripts/file_pool'
 fpool.init( www )
 
-local wvobj = wv.webViewCreate()
+local wvobj = wv.webview_create(false, nil)
 
 -----------------------------------------------------------------------------------------------
 -- Register scheme callback - change scheme above for your own scheme.
@@ -68,24 +68,26 @@ end
 -----------------------------------------------------------------------------------------------
 -- Main stuff
 
-wv.webViewSetTitle( wvobj, www.title )
-wv.webViewSetSize( wvobj, 1280, 900 )
+wv.webview_set_title( wvobj, www.title )
+wv.webview_set_size( wvobj, 1280, 900, 3 )
 
-wv.webViewHandleScheme( wvobj, "custom", fpool_readfile )
+--wv.webview_dispatch( wvobj, "custom", fpool_readfile )
 
 if( www.register ~= nil ) then 
     if(www.register.init) then www.register.init( wv, wvobj ) end
     for k, v in pairs( www.register ) do
         if( k ~= "init" ) then
-            wv.webViewBindOperation( wvobj, v.funcname, v.func, v.args )
+            wv.webview_bind( wvobj, v.funcname, v.func, v.args )
         end
     end
 end
 
-wv.webViewNavigate( wvobj, www.url_start )
+wv.webview_navigate( wvobj, www.url_start )
 
 -- NOTE: Enable this to view debug at start. This can be put in JS callbacks too. 
 -- wv.webViewEnableInspector( wvobj )
-wv.webViewRun( wvobj )
+wv.webview_run( wvobj )
+
+-- wv.webview_destroy( wvobj )
 
 -----------------------------------------------------------------------------------------------

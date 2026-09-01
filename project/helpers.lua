@@ -11,17 +11,17 @@ void free(void *);
 
 local function mutex_init()
 
-    local mutex = ffi.new("pthread_mutex_t[1]")
-    pthread.pthread_mutex_init( mutex, nil)
-    return mutex 
+    --local mutex = ffi.new("pthread_mutex_t[1]")
+    --pthread.pthread_mutex_init( mutex, nil)
+    return {} 
 end
 
 local function mutex_lock( mutex )
-    pthread.pthread_mutex_lock(mutex)
+    --pthread.pthread_mutex_lock(mutex)
 end
 
 local function mutex_unlock( mutex )
-    pthread.pthread_mutex_unlock(mutex)
+    --pthread.pthread_mutex_unlock(mutex)
 end
 
 local mutex = mutex_init()
