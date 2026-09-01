@@ -4,6 +4,23 @@ Nodelj is intended to be a luajit version of Nodejs.
 
 Development supported by Kakutai Pty Ltd: https://www.kakutai.com
 
+## Quickstart
+
+Open terminal and type:
+```.\bin\win64\luajit.exe .\project\main.lua```
+
+Edit the main.lua to run other examples.
+```Line 52: local www = configs.google```
+
+Change configs.google to one of the config sin the project/configs/main.lua
+These are:
+- config.editor_panel   | a ThreeJS editing tool
+- config.saldowww       | A simple website I built for my company
+- config.aspecttest     | A test for aspect
+- config.webgltest      | Simple webgltest
+- config.materialism    | Materialism JS node interface
+- config.google         | Google browser
+
 Notes: 
 >The above is an aspiration, and not the current status of the project.
 
